@@ -1,14 +1,15 @@
 '''
-    REST Manager that acts as a client for Wibee API
+    REST Manager
 '''
 
 import requests
 
 class RESTManager:
-    '''REST Manager Class'''
+    '''REST Manager Class
+       Client for Wibee API'''
     @staticmethod
     def get_request(url):
-        '''HTTP GET Request'''
+        '''Makes an HTTP GET Request to a given URL'''
         response = requests.get(url)
 
         if response.status_code != 200:
