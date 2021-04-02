@@ -1,0 +1,12 @@
+{
+    "vrmst": "voltage",
+    "irmst": "current",
+    "papt": "apparent_power",
+    "pact": "active_power",
+    "preact": "reactive_power",
+    "freqt": "frequency",
+    "fpott": "power_factor",
+    "eact": "active_energy",
+    "ereactlt": "inductive_reactive_energy",
+    "ereactct": "capacitive_reactive_energy"
+}
