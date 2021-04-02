@@ -2,64 +2,45 @@
     Formatter
 '''
 
+import json
+# pylint: disable=E0401
+from Components.manifest_manager import ManifestManager
+
 class Formatter:
     '''Formater Class'''
-    def translate_to_influx(self, inDict):
-        '''Translate into influx format'''
-        return self.generate_individual_list(inDict)
-        #return self.unique_format(inDict)
+    def __init__(self):
+        '''Constructor'''
+        self.manifest_manager = ManifestManager()
+        self.measurements_table_path = self.manifest_manager.get_from_manifest("Measurements_Table")
+        self.format_header = self.manifest_manager.get_from_manifest("Format_Header")
+        self.measurements_table = self.__get_measurements_table(self.measurements_table_path)
 
+    def format_to_influx(self, processed_dict):
+        '''Returns a list with formated messages'''
+        return self.__generate_list(processed_dict)
 
-    def unique_format(self, inDict):
-        aux_list = []
-        final_format = "consumo,location=ITSI"
+    def __generate_list(self, inDict):
+        '''Fills the list with formated messages'''
+        format_list = []
+        format_list.append(self.__build_message(inDict))
+        return format_list
 
-        for i in inDict.keys():
-            final_format = final_format + " {}={}".format(self.get_measurement_type(i), inDict[i])
+    def __build_message(self, inDict):
+        '''Fills a message with the Influx format'''
+        message = self.format_header
+        for key in inDict.keys():
+            message = self.__add_measurement(key, message, inDict)
+        return message[:-1]
 
-        aux_list.append(final_format)
-        return aux_list
+    def __add_measurement(self, key, partial_message, inDict):
+        '''Adds a new measurement to a influx message'''
+        return partial_message + "{}={},".format(self.__get_measurement_type(key), inDict[key])
 
-    def generate_individual_list(self, inDict):
-        final_list = []
-
-        for i in inDict.keys():
-            measurement, tag_set, field_set = self.get_format_parameters(i, inDict)
-            final_list.append(self.build_format(measurement, tag_set, field_set))
-
-        return final_list
-    
-    def get_format_parameters(self, key, inDict):
-        measurement = self.get_measurement_type(key)
-        tag_set = 'ITSI'
-        field_set = inDict[key]
-        return measurement, tag_set, field_set
-
-    @staticmethod
-    def build_format(measurement, tag_set, field_set):
-        return "{},location={} value={}".format(measurement, tag_set, field_set)
+    def __get_measurement_type(self, abbreviation):
+        '''Returns the equivalence for a given abbreviation'''
+        return self.measurements_table[abbreviation]
 
     @staticmethod
-    def get_measurement_type(abbreviation):
-        '''Like a dictionary'''
-
-        if abbreviation == 'vrmst':
-            return "voltage"
-        elif abbreviation == 'irmst':
-            return "current"
-        elif abbreviation == 'papt':
-            return "apparent_power"
-        elif abbreviation == 'pact':
-            return "active_power"
-        elif abbreviation == 'preact':
-            return "reactive_power"
-        elif abbreviation == 'freqt':
-            return "frequency"
-        elif abbreviation == 'fpott':
-            return "power_factor"
-        elif abbreviation == 'eact':
-            return "active_energy"
-        elif abbreviation == 'ereactlt':
-            return "inductive_reactive_energy"
-        elif abbreviation == 'ereactct':
-            return "capacitive_reactive_energy"
+    def __get_measurements_table(measurements_table_path):
+        with open("../Resources/{}".format(measurements_table_path),'r') as measurements_table:
+            return json.load(measurements_table)
