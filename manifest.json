@@ -1,0 +1,19 @@
+{
+    "Organization": "CP.SL",
+    "Project_Name": "ControlICE",
+    "Authors": [
+        "Josue Carlos Zenteno Yave",
+        "Sergio Silvestre Pavón",
+        "Alejandro Riquelme Castaño",
+        "Javier Santana Delgado",
+        "Julio Sanchez de las Heras Martín Consuegra"
+    ],
+    "Measurements_Table": "measurements.json",
+    "Format_Header": "consumo,location=ITSI ",
+    "Ip": "localhost",
+    "Topic": "Consumo",
+    "Sensors_URL":{
+        "ITSI_Pasillo":"http://172.24.106.5/services/user/values.xml?id=ITSI+Pasillo",
+        "ITSI_Citisim":"http://172.24.106.6/services/user/values.xml?id=ITSI+Citisim"
+    }
+}
