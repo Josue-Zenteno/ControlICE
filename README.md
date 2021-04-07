@@ -12,7 +12,7 @@
  
 # ControlICE
 
-Final Project for Computer Systems Integration - Escuela Superior de Informática - Ciudad Real
+Final Project for Computer Systems Integrationn - Escuela Superior de Informática - Ciudad Real
 
 ## Developers
 
