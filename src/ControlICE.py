@@ -3,6 +3,8 @@
 '''
 from art import tprint
 from Components.manager import Manager
+from time import sleep
+import requests
 
 class ControlICE:
     def __init__(self):
@@ -27,6 +29,11 @@ class ControlICE:
 
 try:
     controlICE = ControlICE()
-    controlICE.launch_controlICE()
+    while True:
+        try:
+            controlICE.launch_controlICE()
+            sleep(10)
+        except requests.exceptions.ConnectionError:
+            print("A connection error ocurred. Trying again...")
 except KeyboardInterrupt:
     pass
