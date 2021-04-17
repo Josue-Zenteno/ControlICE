@@ -10,8 +10,6 @@ from Components.formatter import Formatter
 from Components.dispatcher import Dispatcher
 from Components.manifest_manager import ManifestManager
 
-
-
 class Manager:
     def __init__(self):
         '''Constructor'''
@@ -26,7 +24,6 @@ class Manager:
     
     def launch_app (self):
         '''Controls the workflow'''
-
         xml = self.rest_manager.get_request(self.get_url("ITSI_Pasillo"))
         dict = self.xml_manager.xlm2dict(xml)
         parsed_dict = self.parser.parse_information(dict)
