@@ -23,24 +23,11 @@ Final Project for Computer Systems Integration - Escuela Superior de Informátic
 * Julio Sánchez de las Heras Martín-Consuegra <<Julio.Sanchez6@alu.uclm.es>>
 
 ## How to run the program
-
-1) First you have to install all the dependencies that appear in the **requirements.txt** file.
-
-2) Then you have open a **terminal** and execute the following commands (to run Telegraf).
-
+1) First you have to move into the **ControlICE** folder
+2) Then you have to install **all the dependencies** that appear in the **requirements.txt** file.
+3) Finally execute the following command:
 ```
- export INFLUX_TOKEN=L96CTgnSaWNzMPjKOahTomuFceDTyFLUdS-vpwpi67N1bzfA0RDs4GvoftesFLvXhcxnXYvejRPmlvQGFPHdPQ==
-```
-```
- telegraf --config https://eu-central-1-1.aws.cloud2.influxdata.com/api/v2/telegrafs/074ca29249ee3000
-```
-
-3) Then you have to move into the ' **ControlICE/src** ' folder.
-
-4) Finally execute the following command:
-```
-python3 ControlICE.py
+$./ControlICE
 ```
 ## How to contact us
-Send us a mail with the possible problems that you could find during the execution of the program
-
+Send us an email with the possible problems that you could find during the execution of the program.
