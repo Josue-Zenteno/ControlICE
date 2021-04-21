@@ -1,0 +1,2 @@
+#!/bin/bash
+gnome-terminal --tab -e "bash -c 'export INFLUX_TOKEN=L96CTgnSaWNzMPjKOahTomuFceDTyFLUdS-vpwpi67N1bzfA0RDs4GvoftesFLvXhcxnXYvejRPmlvQGFPHdPQ==';'telegraf --config https://eu-central-1-1.aws.cloud2.influxdata.com/api/v2/telegrafs/074ca29249ee3000';'exec bash'" --tab -e "bash -c 'cd src/';'python3 ControlICE.py';'exec bash'"
