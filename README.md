@@ -27,7 +27,10 @@ Final Project for Computer Systems Integration - Escuela Superior de Informátic
 2) Then you have to install **all the dependencies** that appear in the **requirements.txt** file.
 3) Finally execute the following command:
 ```
-$./ControlICE
+$  ./ControlICE
 ```
+## More about the project
+If you want to know more about how ControlICE works internally go to the official [Wiki](https://github.com/Josue-Zenteno/ControlICE/wiki)
+
 ## How to contact us
 Send us an email with the possible problems that you could find during the execution of the program.
