@@ -1,9 +1,13 @@
+//MQTT
+mosquitto
+python3-paho-mqtt
+
 //xmltodict
 pip3 install xmltodict
 
 //art
 pip3 install art
 
-//Telegraf
+//Install Telegraf
 wget https://dl.influxdata.com/telegraf/releases/telegraf_1.16.2-1_amd64.deb
 sudo dpkg -i telegraf_1.16.2-1_amd64.deb
