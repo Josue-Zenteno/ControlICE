@@ -23,12 +23,10 @@ Final Project for Computer Systems Integration - Escuela Superior de Informátic
 * Julio Sánchez de las Heras Martín-Consuegra <<Julio.Sanchez6@alu.uclm.es>>
 
 ## How to run the program
-1) First you have to move into the **ControlICE** folder
-2) Then you have to install **all the dependencies** that appear in the **requirements.txt** file.
-3) Finally execute the following command:
-```
-$  ./ControlICE
-```
+1) Ensure that mosquitto is correctly working on your machine
+2) Then you have to move into the **ControlICE** folder
+3) Then you have to install **all the dependencies** that appear in the **requirements.txt** file.
+4) Finally execute the following command: ```./ControlICE```
 ## More about the project
 If you want to know more about how ControlICE works internally go to the official [Wiki](https://github.com/Josue-Zenteno/ControlICE/wiki)
 
